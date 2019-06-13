@@ -1,0 +1,24 @@
+{
+  "name": "roicalc",
+  "version": "1.0.0",
+  "description": "Calculate ROI Value for Investment Property",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zrichardet/Rental-Calc.git"
+  },
+  "keywords": [
+    "ROI",
+    "Investment",
+    "Property"
+  ],
+  "author": "Zach Richardet <zach@tetriscodes.com> (https://github.com/zrichardet/Rental-Calc)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/zrichardet/Rental-Calc/issues"
+  },
+  "homepage": "https://github.com/zrichardet/Rental-Calc#readme"
+}
