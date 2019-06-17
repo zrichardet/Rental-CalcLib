@@ -1,3 +1,4 @@
+//noIncome expects two floats for income and expense
 function noIncome(income, expense) {
   return income - expense;
 }

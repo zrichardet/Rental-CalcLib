@@ -4,7 +4,7 @@
   "description": "Calculate ROI Value for Investment Property",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha index.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/zrichardet/Rental-Calc/issues"
   },
-  "homepage": "https://github.com/zrichardet/Rental-Calc#readme"
+  "homepage": "https://github.com/zrichardet/Rental-Calc#readme",
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "6.1.4"
+  }
 }
