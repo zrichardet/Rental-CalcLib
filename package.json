@@ -4,6 +4,7 @@
   "description": "Calculate ROI Value for Investment Property",
   "main": "src/index.js",
   "scripts": {
+    "check-coverage": "istanbul check-coverage  --statements 100 --branches 100 --functions 100 --lines 100",
     "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js"
   },
   "repository": {
@@ -31,7 +32,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run test && npm run check-coverage"
     }
   }
 }

@@ -1,3 +1,20 @@
+sudo: false
 language: node_js
 node_js:
   - "12"
+cache:
+    directories:
+      -node_modules
+notifications:
+  email: false
+node_js:
+  -iojs
+before_install:
+  -npm i -g npm@^1.0.0
+before_scripts:
+  -npm prune
+script:
+  -npm run test
+  -npm run check-coverage
+after_success:
+  -npm run semantic-release
