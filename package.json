@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "check-coverage": "istanbul check-coverage  --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js"
   },
   "repository": {
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/zrichardet/Rental-Calc#readme",
   "devDependencies": {
     "chai": "4.2.0",
+    "codecov.io": "0.1.6",
     "ghooks": "2.0.4",
     "istanbul": "0.4.5",
     "mocha": "6.1.4",
