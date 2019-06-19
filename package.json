@@ -4,7 +4,7 @@
   "description": "Calculate ROI Value for Investment Property",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha index.test.js"
+    "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   "devDependencies": {
     "chai": "4.2.0",
     "ghooks": "2.0.4",
+    "istanbul": "0.4.5",
     "mocha": "6.1.4",
+    "nyc": "14.1.1",
     "semantic-release": "15.13.16"
   },
   "config": {
