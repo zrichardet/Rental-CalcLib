@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "check-coverage": "istanbul check-coverage  --statements 100 --branches 100 --functions 100 --lines 100",
-    "report-coverage": "cat ./coverage/lcov.info | codecove",
+    "report-coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov",
     "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js"
   },
   "repository": {
