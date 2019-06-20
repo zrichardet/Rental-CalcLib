@@ -1,11 +1,13 @@
 {
   "name": "roicalc",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Calculate ROI Value for Investment Property",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "check-coverage": "istanbul check-coverage  --statements 100 --branches 100 --functions 100 --lines 100",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore *.test.js index.js",
     "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js"
   },
   "repository": {
@@ -17,6 +19,10 @@
     "Investment",
     "Property"
   ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "Zach Richardet <zach@tetriscodes.com> (https://github.com/zrichardet/Rental-Calc)",
   "license": "UNLICENSED",
   "bugs": {
@@ -25,17 +31,26 @@
   "homepage": "https://github.com/zrichardet/Rental-Calc#readme",
   "devDependencies": {
     "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
     "chai": "4.2.0",
     "codecov.io": "0.1.6",
     "ghooks": "2.0.4",
     "istanbul": "0.4.5",
     "mocha": "6.1.4",
     "nyc": "14.1.1",
+    "rimraf": "2.6.3",
     "semantic-release": "15.13.16"
   },
   "config": {
     "ghooks": {
       "pre-commit": "npm run test && npm run check-coverage"
     }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   }
 }
