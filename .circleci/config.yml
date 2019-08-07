@@ -36,7 +36,6 @@ jobs:
       # run tests!
       - run: yarn test
   deploy:
-    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
@@ -45,7 +44,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish package
-          command: npm publish    
+          command: npm publish
 
 workflows:
   version: 2
