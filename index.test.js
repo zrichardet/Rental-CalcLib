@@ -36,3 +36,31 @@ describe("Expenses", () => {
     });
   });
 });
+
+describe("ROI", () => {
+  describe("calculate", () => {
+    it("Should be a value less than 100", function() {
+      expect(calculators.calculateROI(1, 1, 1, 0)).to.be.closeTo(
+        100,
+        0.000000001
+      );
+    });
+    it("Should be greater than -100", function() {
+      expect(calculators.calculateROI(0, 1, 1, 1)).to.be.closeTo(
+        -100,
+        0.0000001
+      );
+    });
+  });
+});
+
+describe("NOI", () => {
+  describe("calclate", () => {
+    it("Should sum NOI to 1", () => {
+      expect(calculators.calculateNOI(1, 0)).to.be.closeTo(1, 0.00001);
+    });
+    it("Should sum NOI to -1", () => {
+      expect(calculators.calculateNOI(0, 1)).to.be.closeTo(-1, 0.00001);
+    });
+  });
+});

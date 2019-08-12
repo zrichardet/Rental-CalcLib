@@ -16,7 +16,7 @@ export function sumExpenses(
 }
 
 export function calculateNOI(monthlyIncome, totalExpenses) {
-  return monthlyIncome * 12 - totalExpenses * 12;
+  return monthlyIncome - totalExpenses;
 }
 export function calculateROI(
   monthlyIncome,
@@ -28,7 +28,7 @@ export function calculateROI(
     (calculateNOI(monthlyIncome, totalExpenses) /
       (purchasePrice * downPayment)) *
     100;
-  return ROI.toFixed(1);
+  return ROI;
 }
 export function makeReturnTable(years, monthlyIncome, totalExpenses) {
   let table = [];
@@ -49,12 +49,12 @@ export function mortgagePayment(interestRate, loanTerm, loanAmount) {
   let numerator = monthlyRate * (1 + monthlyRate) ** numOfPayments;
   let denominator = (1 + monthlyRate) ** numOfPayments - 1;
   let monthlyMortgage = loanAmount * (numerator / denominator);
-  return monthlyMortgage.toFixed(2);
+  return monthlyMortgage;
 }
 
 export function interestPayment(loanAmount, interestRate) {
   let interestPayment = loanAmount * (interestRate / 12);
-  return interestPayment.toFixed(2);
+  return interestPayment;
 }
 
 export function principalPayment(loanAmount, loanTerm, interestRate) {

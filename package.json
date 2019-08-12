@@ -1,6 +1,6 @@
 {
   "name": "roicalc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Calculate ROI Value for Investment Property",
   "main": "dist/index.js",
   "scripts": {
