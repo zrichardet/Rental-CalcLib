@@ -43,25 +43,28 @@ export function makeReturnTable(years, monthlyIncome, totalExpenses) {
   return table;
 }
 
-export function mortgagePayment(interestRate, loanTerm, loanAmount) {
+export function mortgagePayment(loanTerm, loanAmount, interestRate) {
   let monthlyRate = interestRate / 12;
   let numOfPayments = loanTerm * 12;
   let numerator = monthlyRate * (1 + monthlyRate) ** numOfPayments;
   let denominator = (1 + monthlyRate) ** numOfPayments - 1;
-  let monthlyMortgage = loanAmount * (numerator / denominator);
-  return monthlyMortgage;
+  return loanAmount * (numerator / denominator);
 }
 
-export function interestPayment(loanAmount, interestRate) {
-  let interestPayment = loanAmount * (interestRate / 12);
-  return interestPayment;
+export function interestPayment(loanBalance, interestRate) {
+  return loanBalance * (interestRate / 12);
 }
 
-export function principalPayment(loanAmount, loanTerm, interestRate) {
-  let principalPayment =
-    mortgagePayment(interestRate, loanTerm, loanAmount) -
-    interestPayment(loanAmount, interestRate);
-  return principalPayment;
+export function principalPayment(
+  loanTerm,
+  loanAmount,
+  interestRate,
+  loanBalance
+) {
+  return (
+    mortgagePayment(loanTerm, loanAmount, interestRate) -
+    interestPayment(loanBalance, interestRate)
+  );
 }
 
 export function loanPaydown(loanAmount, loanTerm, interestRate) {
