@@ -1,23 +1,14 @@
-export function sumExpenses(
-  monthlyMortgage,
-  monthlyIncome,
-  vacancyRate,
-  managementFee,
-  maintenanceFee,
-  capitalExpenditures
-) {
-  let totalExpenses =
-    monthlyMortgage * 1 +
-    monthlyIncome * vacancyRate +
-    monthlyIncome * managementFee +
-    monthlyIncome * maintenanceFee +
-    monthlyIncome * capitalExpenditures;
-  return totalExpenses;
+export function sumExpenses(monthlyMortgage, monthlyIncome, ...percentFees) {
+  return percentFees.reduce(
+    (acc, val) => acc + monthlyIncome * val,
+    monthlyMortgage
+  );
 }
 
 export function calculateNOI(monthlyIncome, totalExpenses) {
   return monthlyIncome - totalExpenses;
 }
+
 export function calculateROI(
   monthlyIncome,
   purchasePrice,
@@ -30,6 +21,7 @@ export function calculateROI(
     100;
   return ROI;
 }
+
 export function makeReturnTable(years, monthlyIncome, totalExpenses) {
   let table = [];
   [...Array(years).keys()].forEach(i => {
@@ -78,17 +70,23 @@ export function makeBalanceTable(
   loanAmount /*int*/,
   interestRate /*float*/
 ) {
-  let table = [];
+  let table = [...Array(loanTermYears).keys()];
   let newLoanAmount = loanAmount;
-  [...Array(loanTermYears).keys()].forEach(i => {
+  return table.map(i => {
     newLoanAmount =
       newLoanAmount - loanPaydown(newLoanAmount, loanTermYears, interestRate);
-    let returnObject = {
+    return {
       year: i,
       return: newLoanAmount
     };
-    table.push(returnObject);
   });
+}
 
-  return table;
+export function optimizeIncome(
+  purchasePrice,
+  downPayment,
+  percentROI,
+  totalExpenses
+) {
+  return (purchasePrice * downPayment * percentROI) / 100 + totalExpenses;
 }

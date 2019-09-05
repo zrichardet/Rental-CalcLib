@@ -4,10 +4,9 @@ var calculators = require("./index");
 describe("Expenses", () => {
   describe("Sum", () => {
     it("Should sum expenses to 10", () => {
-      expect(calculators.sumExpenses(1, 1, 0.1, 0.1, 0.1, 0.1)).to.be.closeTo(
-        1.4,
-        0.00001
-      );
+      expect(
+        calculators.sumExpenses(1, 1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
+      ).to.be.closeTo(1.6, 0.00001);
     });
   });
 });
