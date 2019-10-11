@@ -22,11 +22,11 @@ export function calculateROI(
   return ROI;
 }
 
-export function makeReturnTable(years, monthlyIncome, totalExpenses) {
+export function makeReturnTable(loanTerm, monthlyIncome, totalExpenses) {
   let table = [];
-  [...Array(years).keys()].forEach(i => {
+  [...Array(loanTerm).keys()].forEach(i => {
     let returnObject = {
-      year: i,
+      loanTerm: i,
       return: calculateNOI(monthlyIncome, totalExpenses) * (i + 1)
     };
     table.push(returnObject);
