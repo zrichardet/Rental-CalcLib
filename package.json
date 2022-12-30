@@ -39,7 +39,7 @@
     "ghooks": "2.0.4",
     "istanbul": "0.4.5",
     "json-loader": "0.5.7",
-    "mocha": "6.1.4",
+    "mocha": "10.2.0",
     "nodemon": "1.19.1",
     "nyc": "14.1.1",
     "rimraf": "2.6.3",
